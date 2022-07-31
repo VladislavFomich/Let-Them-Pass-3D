@@ -37,13 +37,19 @@ public class TouchMove : MonoBehaviour
             Ray rayPlane = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
             RaycastHit hitPlane;
             if (Physics.Raycast(rayPlane, out hitPlane, Mathf.Infinity, _layerPlane))
-            {
+            {   
+                if(_building != null)
+                {
                 _building.Move(speed, hitPlane.point);
+                }
             }
         }
         else if (InputController.Instance.GetPointerUp)
         {
+            if(_building != null)
+            {
             _building.ActiveDrag(false);
+            }
         }
     }
 }
