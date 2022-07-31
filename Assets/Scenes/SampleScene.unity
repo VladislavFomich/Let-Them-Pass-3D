@@ -615,6 +615,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_2.5x7.5 Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6678546816397948163, guid: e665f91946ea0fa4cb4127505be71993,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678546816397948163, guid: e665f91946ea0fa4cb4127505be71993,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e665f91946ea0fa4cb4127505be71993, type: 3}
 --- !u!1001 &162758256
@@ -2128,7 +2138,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444591535}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 547fe0c7780d0584396233298cf69041, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2502,6 +2512,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_2.5x7.5 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678546816397948163, guid: e665f91946ea0fa4cb4127505be71993,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678546816397948163, guid: e665f91946ea0fa4cb4127505be71993,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e665f91946ea0fa4cb4127505be71993, type: 3}
@@ -3985,7 +4005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb18b0d6f819e7a41927dacf410f5605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 600
+  speed: 1000
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7836,6 +7856,16 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 118
       objectReference: {fileID: 0}
+    - target: {fileID: 5392282606054354682, guid: 52aecd1c66be59041bd65be3cac3a886,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392282606054354682, guid: 52aecd1c66be59041bd65be3cac3a886,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52aecd1c66be59041bd65be3cac3a886, type: 3}
 --- !u!1 &2018159877 stripped
@@ -8092,6 +8122,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392282606054354682, guid: 52aecd1c66be59041bd65be3cac3a886,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392282606054354682, guid: 52aecd1c66be59041bd65be3cac3a886,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52aecd1c66be59041bd65be3cac3a886, type: 3}

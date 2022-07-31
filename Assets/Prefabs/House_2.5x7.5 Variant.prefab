@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 302058909784190289, guid: 52aecd1c66be59041bd65be3cac3a886,
         type: 3}
       propertyPath: m_Name
-      value: House_2.5x7.5
+      value: House_2.5x7.5 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 302058909784190318, guid: 52aecd1c66be59041bd65be3cac3a886,
         type: 3}

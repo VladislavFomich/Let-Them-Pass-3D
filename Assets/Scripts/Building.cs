@@ -12,9 +12,14 @@ public class Building : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         isDragged = false;
     }
+    private void Start()
+    {
+        _rb.isKinematic = true; 
+    }
 
     public void ActiveDrag(bool isActive)
     {
+        _rb.isKinematic = !isActive;
         isDragged = isActive;
     }
 
@@ -22,7 +27,8 @@ public class Building : MonoBehaviour
     {
         if (isDragged)
         {
-            Vector3 direction = (hitPoint - transform.position).normalized;
+            Vector3 direction = (hitPoint - transform.position).normalized; 
+            print(direction);
             _rb.AddForce(direction * speed);
         }
     }

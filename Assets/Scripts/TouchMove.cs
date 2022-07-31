@@ -32,7 +32,18 @@ public class TouchMove : MonoBehaviour
                 _building.ActiveDrag(true);
             }
         }
-        else if (InputController.Instance.GetPointerHeld)
+        else if (InputController.Instance.GetPointerUp)
+        {
+            if(_building != null)
+            {
+            _building.ActiveDrag(false);
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {     
+        if (InputController.Instance.GetPointerHeld)
         {
             Ray rayPlane = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
             RaycastHit hitPlane;
@@ -40,15 +51,8 @@ public class TouchMove : MonoBehaviour
             {   
                 if(_building != null)
                 {
-                _building.Move(speed, hitPlane.point);
+                  _building.Move(speed, hitPlane.point);
                 }
-            }
-        }
-        else if (InputController.Instance.GetPointerUp)
-        {
-            if(_building != null)
-            {
-            _building.ActiveDrag(false);
             }
         }
     }
