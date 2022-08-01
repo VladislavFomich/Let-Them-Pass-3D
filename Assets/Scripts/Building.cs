@@ -28,7 +28,6 @@ public class Building : MonoBehaviour
         if (isDragged)
         {
             Vector3 direction = (hitPoint - transform.position).normalized; 
-            print(direction);
             _rb.AddForce(direction * speed);
         }
     }

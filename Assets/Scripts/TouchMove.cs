@@ -5,6 +5,7 @@ using UnityEngine;
 public class TouchMove : MonoBehaviour
 {
     [SerializeField] private int speed;
+    [SerializeField] private CheckPass checkPass;
 
     private Camera _cam;
     private Building _building;
@@ -18,6 +19,7 @@ public class TouchMove : MonoBehaviour
         _cam = Camera.main;
         _layerHouse = LayerMask.GetMask("House");
         _layerPlane = LayerMask.GetMask("Plane");
+        checkPass.OnPassValid += StopMove;
     }
     private void Update()
     {
@@ -36,7 +38,7 @@ public class TouchMove : MonoBehaviour
         {
             if(_building != null)
             {
-            _building.ActiveDrag(false);
+              _building.ActiveDrag(false);
             }
         }
     }
@@ -55,5 +57,9 @@ public class TouchMove : MonoBehaviour
                 }
             }
         }
+    }
+    public void StopMove(Vector3 point)
+    {
+        this.enabled = false;
     }
 }
