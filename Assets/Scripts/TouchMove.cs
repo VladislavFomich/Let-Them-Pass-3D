@@ -71,6 +71,6 @@ public class TouchMove : MonoBehaviour
     {
         lvlCanvasView.UpMovesNum(_moveBuildingNum+1);
         checkPath.OnPassValid -= StopMove;
-        this.enabled = false;
+        
     }
 }
