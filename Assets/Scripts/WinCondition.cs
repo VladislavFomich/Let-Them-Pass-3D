@@ -5,9 +5,12 @@ using UnityEngine;
 public class WinCondition : MonoBehaviour
 {
     [SerializeField] private GameObject winCanvas;
+    [SerializeField] private GameObject[] playersList;
 
-    private void OnTriggerEnter(Collider other)
+    public int PlayerNum { get => playersList.Length; }
+    
+    public void ActiveWinCanvas()
     {
-        winCanvas.active = true;
+        winCanvas.SetActive(true);
     }
 }
