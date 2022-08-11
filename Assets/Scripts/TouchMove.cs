@@ -11,13 +11,13 @@ public class TouchMove : MonoBehaviour
 
     private Camera _cam;
     private Building _building;
+    private bool _isPlay = true;
 
 
     private LayerMask _layerHouse;
     private LayerMask _layerPlane;
 
-    private int _moveBuildingNum = 0;
-    
+
 
     private void Awake()
     {
@@ -28,6 +28,8 @@ public class TouchMove : MonoBehaviour
     }
     private void Update()
     {
+       if (_isPlay)
+       {
         if (InputController.Instance.GetPointerDown)
         {
             Ray rayHouse = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
@@ -43,34 +45,44 @@ public class TouchMove : MonoBehaviour
         {
             if (_building != null)
             {
-               _moveBuildingNum++;
-               lvlCanvasView.UpMovesNum(_moveBuildingNum);
-              _building.ActiveDrag(false);
-             _building.SnapToGrid(true);
-              _building = null; 
+                _building.ActiveDrag(false);
+                _building.SnapToGrid(true);
+                _building = null;
             }
         }
+
+       }
+       else
+            _building.SnapToGrid(true );
     }
+   
+    
 
     private void FixedUpdate()
-    {     
-        if (InputController.Instance.GetPointerHeld)
+    {
+
+        if (_isPlay)
         {
-            Ray rayPlane = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
-            RaycastHit hitPlane;
-            if (Physics.SphereCast(rayPlane,rayRadius, out hitPlane, Mathf.Infinity, _layerPlane))
-            {   
-                if(_building != null)
+        if (InputController.Instance.GetPointerHeld)
+            {
+                Ray rayPlane = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
+                RaycastHit hitPlane;
+                if (Physics.SphereCast(rayPlane, rayRadius, out hitPlane, Mathf.Infinity, _layerPlane))
                 {
-                  _building.Move(speed, hitPlane.point);
+                    if (_building != null)
+                    {
+                        _building.Move(speed, hitPlane.point);
+                    }
                 }
             }
+
         }
+        else
+            _building.SnapToGrid(true);
     }
     public void StopMove(Vector3 point)
     {
-        lvlCanvasView.UpMovesNum(_moveBuildingNum+1);
+        _isPlay = false;
         checkPath.OnPassValid -= StopMove;
-        
     }
 }

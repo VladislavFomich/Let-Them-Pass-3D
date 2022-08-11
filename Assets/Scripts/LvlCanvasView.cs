@@ -10,7 +10,7 @@ public class LvlCanvasView : MonoBehaviour
 
 
     private ManageScene _manageScene;
-
+    private int _moves;
     private void Awake()
     {
         _manageScene = GetComponent<ManageScene>();
@@ -21,9 +21,10 @@ public class LvlCanvasView : MonoBehaviour
         lvlMovesText.text = "0";
     }
 
-    public void UpMovesNum(int num)
+    public void UpMovesNum()
     {
-       lvlMovesText.text = num.ToString();
+        _moves++;
+       lvlMovesText.text = _moves.ToString();
     }
 
 }

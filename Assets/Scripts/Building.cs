@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float snapSpeed;
     [SerializeField] private Vector3 gridSize = default;
     [SerializeField] private float houseLenght;
+    [SerializeField] private LvlCanvasView lvlCanvasView;
 
     private Rigidbody _rb;
     private bool _isDragged;
     private bool _isSnaped = false;
     private Vector3 _snapPos;
+    private Vector3 _thisPos;
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -21,6 +24,7 @@ public class Building : MonoBehaviour
     private void Start()
     {
         _rb.isKinematic = true;
+        _thisPos = transform.position;
     }
     private void Update()
     {
@@ -35,7 +39,14 @@ public class Building : MonoBehaviour
             Mathf.Round(this.transform.position.x / this.gridSize.x) * this.gridSize.x,
             Mathf.Round(this.transform.position.y / this.gridSize.y) * this.gridSize.y,
             Mathf.Round(this.transform.position.z / this.gridSize.z) * this.gridSize.z);
-            transform.position = Vector3.MoveTowards(transform.position, _snapPos, speed);
+            transform.position = Vector3.MoveTowards(transform.position, _snapPos, snapSpeed);
+
+            
+            if(_thisPos != _snapPos)
+            {
+                lvlCanvasView.UpMovesNum();
+                _thisPos = _snapPos; 
+            }
         }
     }
 
