@@ -160,6 +160,7 @@ MonoBehaviour:
   snapSpeed: 0.5
   gridSize: {x: 3, y: 0.5, z: 3}
   houseLenght: 3.6
+  lvlCanvasView: {fileID: 0}
 --- !u!208 &394247599698683436
 NavMeshObstacle:
   m_ObjectHideFlags: 0

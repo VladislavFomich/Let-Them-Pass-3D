@@ -5,9 +5,9 @@ using UnityEngine;
 public class WinCondition : MonoBehaviour
 {
     [SerializeField] private GameObject winCanvas;
-    [SerializeField] private GameObject[] playersList;
+    [SerializeField] private int winCount;
 
-    public int PlayerNum { get => playersList.Length; }
+    public int WinCount { get => winCount; }
     
     public void ActiveWinCanvas()
     {

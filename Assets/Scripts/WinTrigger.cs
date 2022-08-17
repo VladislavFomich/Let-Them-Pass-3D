@@ -10,7 +10,7 @@ public class WinTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         playerNum++;
-        if(playerNum == winCondition.PlayerNum)
+        if(playerNum == winCondition.WinCount)
         {
            winCondition.ActiveWinCanvas();
         }

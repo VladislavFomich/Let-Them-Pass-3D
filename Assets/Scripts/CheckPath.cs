@@ -8,10 +8,12 @@ using System;
 public class CheckPath : MonoBehaviour
 {
     public Action<Vector3> OnPassValid;
+
     [SerializeField] private Transform _destinationPoint;
+
+    private DrawPath _drawPath;
     private NavMeshAgent _agent;
     private NavMeshPath _path;
-    private DrawPath _drawPath;
     
 
     private void Awake()
