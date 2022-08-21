@@ -7,7 +7,7 @@ using System;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CheckPath : MonoBehaviour
 {
-    public Action<Vector3> OnPassValid;
+    public Action OnPassValid;
 
     [SerializeField] private Transform _destinationPoint;
 
@@ -30,7 +30,7 @@ public class CheckPath : MonoBehaviour
 
         if (_path.status == NavMeshPathStatus.PathComplete)
         {
-            OnPassValid?.Invoke(_destinationPoint.transform.position);
+            OnPassValid?.Invoke();
         }
           _drawPath.Draw(_path);
     }

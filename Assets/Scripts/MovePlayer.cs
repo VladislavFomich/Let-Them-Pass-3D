@@ -6,21 +6,30 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class MovePlayer : MonoBehaviour
 {
-    [SerializeField] private CheckPath checkPath;
-
+    private CheckPath _checkPath;
+    private Vector3 _destination;
     private NavMeshAgent _agent;
+    private bool _canGo;
 
     private void Awake()
     {
+        _checkPath = GameObject.FindGameObjectWithTag("CheckPath").GetComponent<CheckPath>();
+        _destination = GameObject.FindGameObjectWithTag("DestinationPoint").GetComponent<Transform>().position;
         _agent = GetComponent<NavMeshAgent>();
-        checkPath.OnPassValid += Move;
+        _checkPath.OnPassValid += Move;
     }
 
-
-    public void Move(Vector3 destination)
+    private void Update()
     {
-        checkPath.OnPassValid -= Move;
-        _agent.destination = destination;
+        if (_canGo)
+        {
+        _agent.destination = _destination;
+        }
+    }
+    public void Move()
+    {
+        _canGo = true;
+        _checkPath.OnPassValid -= Move;
     }
 }
 

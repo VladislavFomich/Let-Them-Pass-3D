@@ -80,7 +80,7 @@ public class TouchMove : MonoBehaviour
         else
             _building.SnapToGrid(true);
     }
-    public void StopMove(Vector3 point)
+    public void StopMove()
     {
         _isPlay = false;
         checkPath.OnPassValid -= StopMove;
