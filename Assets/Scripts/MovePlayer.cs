@@ -23,7 +23,7 @@ public class MovePlayer : MonoBehaviour
     {
         if (_canGo)
         {
-        _agent.destination = _destination;
+            _agent.destination = _destination;
         }
     }
     public void Move()
@@ -32,4 +32,5 @@ public class MovePlayer : MonoBehaviour
         _checkPath.OnPassValid -= Move;
     }
 }
+
 

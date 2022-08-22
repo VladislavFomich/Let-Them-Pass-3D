@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,42 +29,42 @@ public class TouchMove : MonoBehaviour
     }
     private void Update()
     {
-       if (_isPlay)
-       {
-        if (InputController.Instance.GetPointerDown)
+        if (_isPlay)
         {
-            Ray rayHouse = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
-            RaycastHit hitHouse;
-
-            if (Physics.SphereCast(rayHouse, rayRadius, out hitHouse, Mathf.Infinity, _layerHouse))
+            if (InputController.Instance.GetPointerDown)
             {
-                _building = hitHouse.transform.GetComponent<Building>();
-                _building.ActiveDrag(true);
-            }
-        }
-        else if (InputController.Instance.GetPointerUp)
-        {
-            if (_building != null)
-            {
-                _building.ActiveDrag(false);
-                _building.SnapToGrid(true);
-                _building = null;
-            }
-        }
+                Ray rayHouse = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
+                RaycastHit hitHouse;
 
-       }
-       else
-            _building.SnapToGrid(true );
+                if (Physics.SphereCast(rayHouse, rayRadius, out hitHouse, Mathf.Infinity, _layerHouse))
+                {
+                    _building = hitHouse.transform.GetComponent<Building>();
+                    _building.ActiveDrag(true);
+                }
+            }
+            else if (InputController.Instance.GetPointerUp)
+            {
+                if (_building != null)
+                {
+                    _building.ActiveDrag(false);
+                    _building.SnapToGrid(true);
+                    _building = null;
+                }
+            }
+
+        }
+        else
+            _building.SnapToGrid(true);
     }
-   
-    
+
+
 
     private void FixedUpdate()
     {
 
         if (_isPlay)
         {
-        if (InputController.Instance.GetPointerHeld)
+            if (InputController.Instance.GetPointerHeld)
             {
                 Ray rayPlane = _cam.ScreenPointToRay(InputController.Instance.PointerPosition);
                 RaycastHit hitPlane;

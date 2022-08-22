@@ -29,15 +29,15 @@ public class MultuplyBalls : MonoBehaviour
                 break;
             
            case Sign.Multiply:
-              int multNum = (num - 1) * PlayerPool.Instance.ActiveBall;
+              int multNum = (num - 1) * PlayerPool.Instance.ActivePlayer;
                for (int i = 0;i < multNum; i++)
                 {
                     PlayerPool.Instance.Instantiate(transform.position,Quaternion.identity);
                 }
                 break;
            case Sign.Divide:
-                int num1 = PlayerPool.Instance.ActiveBall / num;;
-                int divideNum = PlayerPool.Instance.ActiveBall - num1;
+                int num1 = PlayerPool.Instance.ActivePlayer / num;;
+                int divideNum = PlayerPool.Instance.ActivePlayer - num1;
                 PlayerPool.Instance.DestroyBall(divideNum);
                 break;
         }

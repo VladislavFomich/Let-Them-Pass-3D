@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class PlayerPool : Singleton<PlayerPool>
 {
-    [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject player;
     [SerializeField] private Transform poolTransform;
     [SerializeField] private int amount = 0;
     [SerializeField] private bool populateOnStart = true;
     [SerializeField] private bool growOverAmount = true;
-    private int _activeBall = 1;
-    public int ActiveBall { get => _activeBall; }
+
+    private int _activePlayer;
+    public int ActivePlayer { get => _activePlayer; }
+    public int Amount { get => amount; }
 
     private List<GameObject> _pool = new List<GameObject>();
 
     void Awake()
     {
-        if (populateOnStart && ball != null && amount > 0)
+        if (populateOnStart && player != null && amount > 0)
         {
             for (int i = 0; i < amount; i++)
             {
-                var instance = Instantiate(ball);
+                var instance = Instantiate(player);
                 instance.transform.parent = poolTransform;
                 instance.SetActive(false);
                 _pool.Add(instance);
@@ -37,15 +39,15 @@ public class PlayerPool : Singleton<PlayerPool>
                 item.transform.position = position;
                 item.transform.rotation = rotation;
                 item.SetActive(true);
-                _activeBall++;
+                _activePlayer++;
                 return item;
             }
         }
 
         if (growOverAmount)
         {
-            var instance = Instantiate(ball, position, rotation);
-            _activeBall++;
+            var instance = Instantiate(player, position, rotation);
+            _activePlayer++;
             instance.transform.parent = poolTransform;
             _pool.Add(instance);
             return instance;
@@ -66,6 +68,6 @@ public class PlayerPool : Singleton<PlayerPool>
     }
     public void DecreaseBalls()
     {
-        _activeBall--;
+        _activePlayer--;
     }
 }

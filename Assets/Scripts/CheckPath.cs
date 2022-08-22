@@ -14,7 +14,7 @@ public class CheckPath : MonoBehaviour
     private DrawPath _drawPath;
     private NavMeshAgent _agent;
     private NavMeshPath _path;
-    
+
 
     private void Awake()
     {
@@ -32,10 +32,9 @@ public class CheckPath : MonoBehaviour
         {
             OnPassValid?.Invoke();
         }
-          _drawPath.Draw(_path);
+        _drawPath.Draw(_path);
     }
-   
-  
+
+
 
 }
-
