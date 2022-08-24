@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 1783657466}
   cam: {fileID: 154019719}
-  camSpeed: 1000
+  camSpeed: 100
 --- !u!4 &1229016175
 Transform:
   m_ObjectHideFlags: 0

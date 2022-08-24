@@ -9,16 +9,16 @@ public class MultuplyPlayers : MonoBehaviour
     [SerializeField] private int num;
     private bool _isMultiply;
 
-   //private int passPLayer;
+   private int passPLayer;
 
 
     private void OnTriggerEnter(Collider other)
     {
-       // passPLayer++;
-       // if(passPLayer == PlayerPool.Instance.ActivePlayer)
-       // {
-       //     MoveNextStage.Instance.Move();
-      //  }
+        passPLayer++;
+        if(passPLayer == PlayerPool.Instance.ActivePlayer)
+        {
+            MoveNextStage.Instance.Move();
+       }
         
         if (!_isMultiply)
         {
