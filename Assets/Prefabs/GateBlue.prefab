@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2511760294190862811}
   - component: {fileID: 2511760294190862804}
+  - component: {fileID: 1966469736}
+  - component: {fileID: 1966469734}
   m_Layer: 12
-  m_Name: Gate
+  m_Name: GateBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2511760294190862810}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.27, y: 16.5, z: -219.4}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.46, y: 0.46, z: 0.4}
   m_Children:
   - {fileID: 2511760294933341165}
   - {fileID: 4203851895567790214}
@@ -47,6 +49,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.299458, y: 7.8534203, z: 0.041610718}
   m_Center: {x: 1.1180401, y: 3.4318104, z: 0.07892609}
+--- !u!54 &1966469736
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2511760294190862810}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1966469734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2511760294190862810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e28826ed7feb0d4db6e240c35cbb7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sign: 0
+  num: 10
 --- !u!1 &2511760294894688765
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,8 +153,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -30,6 +30,7 @@ public class CheckPath : MonoBehaviour
 
         if (_path.status == NavMeshPathStatus.PathComplete)
         {
+            print(1);
             OnPassValid?.Invoke();
         }
         _drawPath.Draw(_path);

@@ -54,7 +54,10 @@ public class TouchMove : MonoBehaviour
 
         }
         else
+        {
+            if(_building != null)
             _building.SnapToGrid(true);
+        }
     }
 
 
@@ -79,7 +82,10 @@ public class TouchMove : MonoBehaviour
 
         }
         else
+        {
+       if (_building != null)
             _building.SnapToGrid(true);
+        }
     }
     public void StopMove()
     {

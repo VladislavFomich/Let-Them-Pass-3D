@@ -25,11 +25,20 @@ public class MovePlayer : MonoBehaviour
         {
             _agent.destination = _destination;
         }
+        else
+        _agent.isStopped = true;
+
     }
     public void Move()
     {
+        print(3);
         _canGo = true;
         _checkPath.OnPassValid -= Move;
+    }
+
+    public void StopPlayer()
+    {
+        _canGo=false;
     }
 }
 

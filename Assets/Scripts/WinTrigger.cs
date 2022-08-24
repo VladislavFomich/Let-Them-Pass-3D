@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class WinTrigger : MonoBehaviour
 {
-    [SerializeField] private WinCondition winCondition;
-    private int playerNum;
-
     private void OnTriggerEnter(Collider other)
     {
-        playerNum++;
-        if(playerNum == winCondition.WinCount)
+      MovePlayer movePlayer = other.GetComponent<MovePlayer>();
+        if(movePlayer != null)
         {
-           winCondition.ActiveWinCanvas();
+            movePlayer.StopPlayer();
         }
     }
 }
