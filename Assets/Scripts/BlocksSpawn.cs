@@ -16,7 +16,6 @@ public class BlocksSpawn : MonoBehaviour
             pos = new Vector3(blockPrefab[i].transform.position.x, blockPrefab[i].transform.position.y, i * distance);
             Instantiate(blockPrefab[i],pos, Quaternion.identity);
         }
-        print(2);
     }
 
 }

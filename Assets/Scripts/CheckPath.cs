@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using System.Threading;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class CheckPath : MonoBehaviour
+public class CheckPath : Singleton<CheckPath>
 {
     public Action OnPassValid;
 
@@ -14,7 +15,7 @@ public class CheckPath : MonoBehaviour
     private DrawPath _drawPath;
     private NavMeshAgent _agent;
     private NavMeshPath _path;
-
+    bool isDraw = true;
 
     private void Awake()
     {
@@ -22,20 +23,33 @@ public class CheckPath : MonoBehaviour
         _path = new NavMeshPath();
         _drawPath = GetComponent<DrawPath>();
     }
+    private void Start()
+    {
+        StartCoroutine(FirstDraw());
+        
+    }
+    IEnumerator FirstDraw()
+    {
+
+        yield return new WaitForEndOfFrame();
+        _agent.CalculatePath(_destinationPoint.transform.position, _path);
+        _drawPath.Draw(_path);
+        if (isDraw)
+        {
+            isDraw = false;
+        }
+    }
 
 
-    private void Update()
+    public void UpdateCheckPath()
     {
         _agent.CalculatePath(_destinationPoint.transform.position, _path);
 
         if (_path.status == NavMeshPathStatus.PathComplete)
         {
-            print(1);
             OnPassValid?.Invoke();
         }
         _drawPath.Draw(_path);
     }
-
-
 
 }

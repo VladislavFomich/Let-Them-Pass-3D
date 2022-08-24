@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultuplyBalls : MonoBehaviour
+public class MultuplyPlayers : MonoBehaviour
 { 
      enum Sign { Plus, Minus, Divide, Multiply};
     [SerializeField] private Sign sign;
     [SerializeField] private int num;
     private bool _isMultiply;
 
+   //private int passPLayer;
+
 
     private void OnTriggerEnter(Collider other)
     {
+       // passPLayer++;
+       // if(passPLayer == PlayerPool.Instance.ActivePlayer)
+       // {
+       //     MoveNextStage.Instance.Move();
+      //  }
+        
         if (!_isMultiply)
         {
             _isMultiply = true;

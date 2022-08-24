@@ -39,14 +39,16 @@ public class Building : MonoBehaviour
             Mathf.Round(this.transform.position.x / this.gridSize.x) * this.gridSize.x,
             Mathf.Round(this.transform.position.y / this.gridSize.y) * this.gridSize.y,
             Mathf.Round(this.transform.position.z / this.gridSize.z) * this.gridSize.z);
-            transform.position = Vector3.MoveTowards(transform.position, _snapPos, snapSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, _snapPos, snapSpeed * Time.deltaTime);
 
             
             if(_thisPos != _snapPos)
             {
-                lvlCanvasView.UpMovesNum();
+               // lvlCanvasView.UpMovesNum();
                 _thisPos = _snapPos; 
+                CheckPath.Instance.UpdateCheckPath();   
             }
+           
         }
     }
 

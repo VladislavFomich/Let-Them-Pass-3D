@@ -6,34 +6,38 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class MovePlayer : MonoBehaviour
 {
-    private CheckPath _checkPath;
-    private Vector3 _destination;
+    private GameObject _destination;
+    private Vector3 _destinationPosition;
     private NavMeshAgent _agent;
     private bool _canGo;
 
     private void Awake()
     {
-        _checkPath = GameObject.FindGameObjectWithTag("CheckPath").GetComponent<CheckPath>();
-        _destination = GameObject.FindGameObjectWithTag("DestinationPoint").GetComponent<Transform>().position;
+        _destination = GameObject.FindGameObjectWithTag("DestinationPoint");
+        _destinationPosition = _destination.GetComponent<Transform>().position;
         _agent = GetComponent<NavMeshAgent>();
-        _checkPath.OnPassValid += Move;
+        CheckPath.Instance.OnPassValid += Move;
     }
 
     private void Update()
     {
         if (_canGo)
         {
-            _agent.destination = _destination;
+            _agent.isStopped = false;
+            _agent.destination = _destinationPosition;
         }
         else
+        {
         _agent.isStopped = true;
+            _destinationPosition = _destination.transform.position;
+        }
+
 
     }
     public void Move()
     {
-        print(3);
         _canGo = true;
-        _checkPath.OnPassValid -= Move;
+       // CheckPath.Instance.OnPassValid -= Move;
     }
 
     public void StopPlayer()

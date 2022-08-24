@@ -6,7 +6,6 @@ using UnityEngine;
 public class TouchMove : MonoBehaviour
 {
     [SerializeField] private int speed;
-    [SerializeField] private CheckPath checkPath;
     [SerializeField] private LvlCanvasView lvlCanvasView;
     [SerializeField] private float rayRadius;
 
@@ -25,7 +24,7 @@ public class TouchMove : MonoBehaviour
         _cam = Camera.main;
         _layerHouse = LayerMask.GetMask("House");
         _layerPlane = LayerMask.GetMask("Plane");
-        checkPath.OnPassValid += StopMove;
+        CheckPath.Instance.OnPassValid += StopMove;
     }
     private void Update()
     {
@@ -50,6 +49,7 @@ public class TouchMove : MonoBehaviour
                     _building.SnapToGrid(true);
                     _building = null;
                 }
+                CheckPath.Instance.UpdateCheckPath();
             }
 
         }
@@ -90,6 +90,6 @@ public class TouchMove : MonoBehaviour
     public void StopMove()
     {
         _isPlay = false;
-        checkPath.OnPassValid -= StopMove;
+        CheckPath.Instance.OnPassValid -= StopMove;
     }
 }
