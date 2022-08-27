@@ -7,8 +7,8 @@ public class Building : MonoBehaviour
     [SerializeField] private float snapSpeed;
     [SerializeField] private Vector3 gridSize = default;
     [SerializeField] private float houseLenght;
-    [SerializeField] private LvlCanvasView lvlCanvasView;
 
+    private LvlCanvasView _lvlCanvasView;
     private Rigidbody _rb;
     private bool _isDragged;
     private bool _isSnaped = false;
@@ -17,6 +17,7 @@ public class Building : MonoBehaviour
     
     private void Awake()
     {
+        _lvlCanvasView = GameObject.FindGameObjectWithTag("Canvases").GetComponent<LvlCanvasView>();
         _rb = GetComponent<Rigidbody>();
         _isDragged = false;
         SnapToGrid(true);
@@ -44,7 +45,7 @@ public class Building : MonoBehaviour
             
             if(_thisPos != _snapPos)
             {
-               // lvlCanvasView.UpMovesNum();
+                _lvlCanvasView.UpMovesNum();
                 _thisPos = _snapPos; 
                 CheckPath.Instance.UpdateCheckPath();   
             }

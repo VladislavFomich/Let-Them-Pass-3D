@@ -28,7 +28,7 @@ public class MovePlayer : MonoBehaviour
         }
         else
         {
-        _agent.isStopped = true;
+            _agent.isStopped = true;
             _destinationPosition = _destination.transform.position;
         }
 
@@ -37,12 +37,15 @@ public class MovePlayer : MonoBehaviour
     public void Move()
     {
         _canGo = true;
-       // CheckPath.Instance.OnPassValid -= Move;
     }
 
     public void StopPlayer()
     {
         _canGo=false;
+    }
+    public void CustomStart()
+    {
+        _destinationPosition = _destination.GetComponent<Transform>().position;
     }
 }
 

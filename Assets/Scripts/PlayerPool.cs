@@ -38,6 +38,7 @@ public class PlayerPool : Singleton<PlayerPool>
             {
                 item.transform.position = position;
                 item.transform.rotation = rotation;
+                item.GetComponent<MovePlayer>().CustomStart();
                 item.SetActive(true);
                 _activePlayer++;
                 return item;

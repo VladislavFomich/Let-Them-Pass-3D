@@ -80,7 +80,6 @@ MonoBehaviour:
   snapSpeed: 1000
   gridSize: {x: 3, y: 0.5, z: 3}
   houseLenght: 8.9
-  lvlCanvasView: {fileID: 0}
 --- !u!208 &4369620954179650165
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -193,17 +192,17 @@ PrefabInstance:
     - target: {fileID: 4782056615779059890, guid: 1625d22bc6c1c5b4083173dd3b49272f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.61133814
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4782056615779059890, guid: 1625d22bc6c1c5b4083173dd3b49272f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.61465
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4782056615779059890, guid: 1625d22bc6c1c5b4083173dd3b49272f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.66384196
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4782056615779059890, guid: 1625d22bc6c1c5b4083173dd3b49272f,
         type: 3}

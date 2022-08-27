@@ -6,8 +6,12 @@ public class MoveNextStage : Singleton<MoveNextStage>
 {
     [SerializeField] private GameObject destination;
     [SerializeField] private GameObject cam;
+    
     [SerializeField] private float camSpeed;
+
     [SerializeField] private DrawPath drawPath;
+    [SerializeField] private TouchMove touchMove;
+
     private const int _distance = 75;
     private bool moveCam;
     Vector3 newCamPos;
@@ -16,7 +20,7 @@ public class MoveNextStage : Singleton<MoveNextStage>
     {
         if (moveCam)
         {
-        cam.transform.position = Vector3.MoveTowards(cam.transform.position, newCamPos, camSpeed * Time.deltaTime);
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, newCamPos, camSpeed * Time.deltaTime);
             if(cam.transform.localPosition == newCamPos)
                 moveCam = false;
 
@@ -26,9 +30,10 @@ public class MoveNextStage : Singleton<MoveNextStage>
     public void Move()
     {
         destination.transform.position = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z + _distance);
-         newCamPos = new Vector3(cam.transform.position.x, cam.transform.position.y, cam.transform.position.z + _distance);
+        newCamPos = new Vector3(cam.transform.position.x, cam.transform.position.y, cam.transform.position.z + _distance);
         CheckPath.Instance.UpdateCheckPath();
         moveCam = true;
+        touchMove.StartMove();
     }
 
 }

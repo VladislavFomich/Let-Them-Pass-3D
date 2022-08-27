@@ -7,18 +7,19 @@ public class MultuplyPlayers : MonoBehaviour
      enum Sign { Plus, Minus, Divide, Multiply};
     [SerializeField] private Sign sign;
     [SerializeField] private int num;
-    private bool _isMultiply;
 
-   private int passPLayer;
+    private bool _isMultiply;
+    private int _passPLayer;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        passPLayer++;
-        if(passPLayer == PlayerPool.Instance.ActivePlayer)
+        _passPLayer++;
+        if(_passPLayer == PlayerPool.Instance.ActivePlayer / 2)
         {
+            WinCondition.Instance.ActiveWinCanvas();
             MoveNextStage.Instance.Move();
-       }
+        }
         
         if (!_isMultiply)
         {
