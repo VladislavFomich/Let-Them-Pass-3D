@@ -14,7 +14,7 @@ public class WinCondition : Singleton<WinCondition>
         _blockPass++;
         if(_blockPass == winCount)
         {
-        winCanvas.SetActive(true);
+          winCanvas.SetActive(true);
         }
     }
 }
