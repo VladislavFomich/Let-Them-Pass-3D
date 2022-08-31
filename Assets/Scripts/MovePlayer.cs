@@ -11,6 +11,7 @@ public class MovePlayer : MonoBehaviour
     private NavMeshAgent _agent;
     private bool _canGo;
 
+
     private void Awake()
     {
         _destination = GameObject.FindGameObjectWithTag("DestinationPoint");
@@ -23,30 +24,20 @@ public class MovePlayer : MonoBehaviour
     {
         if (_canGo)
         {
-            _agent.isStopped = false;
             _agent.destination = _destinationPosition;
         }
-        else
-        {
-            _agent.isStopped = true;
-            _destinationPosition = _destination.transform.position;
-        }
-
-
     }
     public void Move()
     {
+        _destinationPosition = _destination.transform.position;
         _canGo = true;
     }
 
-    public void StopPlayer()
-    {
-        _canGo=false;
-    }
     public void CustomStart()
     {
-        _destinationPosition = _destination.GetComponent<Transform>().position;
+        _destinationPosition = _destination.transform.position;
     }
+    
 }
 
 

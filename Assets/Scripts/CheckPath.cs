@@ -31,7 +31,7 @@ public class CheckPath : Singleton<CheckPath>
     IEnumerator FirstDraw()
     {
 
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.3f);
         _agent.CalculatePath(_destinationPoint.transform.position, _path);
         _drawPath.Draw(_path);
         if (isDraw)

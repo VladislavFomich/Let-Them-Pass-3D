@@ -15,6 +15,7 @@ public class MultuplyPlayers : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _passPLayer++;
+
         if(_passPLayer == PlayerPool.Instance.ActivePlayer / 2)
         {
             WinCondition.Instance.ActiveWinCanvas();
@@ -38,7 +39,7 @@ public class MultuplyPlayers : MonoBehaviour
                 break;
             
            case Sign.Multiply:
-              int multNum = (num - 1) * PlayerPool.Instance.ActivePlayer;
+               int multNum = (num - 1) * PlayerPool.Instance.ActivePlayer;
                for (int i = 0;i < multNum; i++)
                 {
                     PlayerPool.Instance.Instantiate(transform.position,Quaternion.identity);
