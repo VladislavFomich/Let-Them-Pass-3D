@@ -14,7 +14,7 @@ public class Building : MonoBehaviour
     private bool _isSnaped = false;
     private Vector3 _snapPos;
     private Vector3 _thisPos;
-    
+    Vector3 direction;
     private void Awake()
     {
         _lvlCanvasView = GameObject.FindGameObjectWithTag("Canvases").GetComponent<LvlCanvasView>();
@@ -63,7 +63,15 @@ public class Building : MonoBehaviour
     {
         if (_isDragged)
         {
-            Vector3 direction = ((hitPoint - new Vector3(houseLenght / 2, 0,houseLenght/2)) - transform.position).normalized; 
+            if(transform.rotation.eulerAngles.y == 90)
+            {
+             direction = ((hitPoint - new Vector3(houseLenght/2 , 0, houseLenght/2)) - transform.position).normalized; 
+            }
+            else if(transform.rotation.eulerAngles.y == 0)
+            {
+
+             direction = ((hitPoint - new Vector3(houseLenght , 0, houseLenght)) - transform.position).normalized; 
+            }
             _rb.AddForce(direction * speed);
         }
     }

@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapSpeed: 1000
   gridSize: {x: 3, y: 0.5, z: 3}
-  houseLenght: 3.6
+  houseLenght: 8
 --- !u!208 &394247599698683436
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -258,6 +258,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FamilyHouse_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266563438819217928, guid: 1625d22bc6c1c5b4083173dd3b49272f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8791206099397331122, guid: 1625d22bc6c1c5b4083173dd3b49272f,
         type: 3}
